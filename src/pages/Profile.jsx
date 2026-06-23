@@ -9,7 +9,7 @@ import CreatePost from '../components/CreatePost';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://tech-connect-backed.onrender.com';
 
 export default function Profile() {
   const { username: paramUsername } = useParams();

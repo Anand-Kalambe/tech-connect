@@ -6,7 +6,7 @@ import Avatar from './Avatar';
 import CommentModal from './CommentModal';
 import toast from 'react-hot-toast';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://tech-connect-backed.onrender.com';
 
 function FollowButton({ authorId, authorUsername, initialFollowing }) {
   const [following, setFollowing] = useState(initialFollowing || false);
