@@ -1,41 +1,74 @@
-# Tech Connect
+Tech Connect 🚀
+Hey everyone! 👋 Welcome to Tech Connect.
 
-Tech Connect is a modern, responsive web application designed for users to share posts, connect with friends, and chat in real-time. Built with a sleek user interface, it features dark and light modes, smooth micro-animations, and a robust social feed.
+I built this platform to be a sleek, modern social space where people can share what's on their minds, drop some photos, and actually chat with friends. My main goal was to create a really smooth, dynamic web experience—focusing heavily on responsive design, snappy interactions, and, of course, a proper Dark Mode for those late-night coding sessions.
 
-## Features
-- **User Authentication**: Secure sign up and login with email & password, plus OTP verification logic via Nodemailer.
-- **Dynamic Feed**: Browse all posts, sort by most liked or most commented, and filter through search.
-- **Post Sharing**: Share your thoughts with text and image uploads.
-- **Social Interaction**: Like and comment on posts. Follow and unfollow other users.
-- **Real-Time Chat**: Search for users and start a chat. Messages are polled in the background to feel like real-time communication.
-- **Profile Customization**: View follower/following counts, see a user's recent posts, and personalize your own profile.
-- **Responsive Design**: Tailored experiences for both desktop (sidebars) and mobile devices (bottom navigation).
-- **Theming**: Instantly switch between Light and Dark mode globally.
+🌐 Live Demos
+Want to skip the setup and just see it in action? I've got it hosted here:
 
-## Tech Stack
-- **Frontend**: React.js (Vite), React Router, Context API
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (Mongoose)
-- **Styling**: Vanilla CSS with modern grid/flexbox layouts and CSS Variables.
+Frontend (Vercel): https://tech-connect-ruby.vercel.app
 
-## Running Locally
+Backend API (Render): https://tech-connect-backed.onrender.com
 
-### 1. Prerequisites
-- Node.js (v18+ recommended)
-- A running MongoDB instance or MongoDB Atlas cluster URI
-- SMTP Credentials (if using the email OTP features)
+(Note: Since the backend is on Render's free tier, it might take a few seconds to wake up on your first request. Hang tight!)
 
-### 2. Backend Setup
-1. Navigate to the `backend` folder: `cd backend`
-2. Install dependencies: `npm install`
-3. Create a `.env` file based on `.env.example` and populate your secrets (like `MONGO_URI`, `JWT_SECRET`, `SMTP_USER`, etc.).
-4. Start the server: `npm run dev` (Runs on port 5000)
+✨ What's Inside?
+No Bots Allowed: Secure authentication with real email OTP verification powered by Nodemailer. We make sure our users are actual humans.
 
-### 3. Frontend Setup
-1. Navigate to the `frontend` folder: `cd frontend`
-2. Install dependencies: `npm install`
-3. Start the Vite dev server: `npm run dev` (Runs on port 5174)
+The Global Feed: A dynamic public timeline where you can browse posts from the entire community.
 
-## Architecture Overview
-- The **Frontend** uses a centralized layout wrapper (`page-shell`) to manage the layout dynamically across routes. The `AuthContext` provides global user state, and `ThemeContext` provides global light/dark mode configuration.
-- The **Backend** exposes RESTful endpoints separated into domains (`auth.js`, `posts.js`, `users.js`, `messages.js`). It securely handles password hashing using `bcryptjs` and session tokens using `jsonwebtoken`. Image uploads are supported via `multer`.
+Rich Media Uploads: Post text, images, or both! I hooked this up with Cloudinary so your image uploads are securely hosted and won't disappear when the server restarts.
+
+Social Interactions: Follow your favorite creators, drop likes, and jump into the comment sections.
+
+Snappy Chat: Search for users and start a private conversation. The chat polls for new messages in the background to give you that real-time texting feel.
+
+Custom Profiles: Scope out other users' profiles to see their recent posts, or check your own follower/following stats.
+
+Light & Dark Mode: A globally managed theme toggle that instantly switches the vibe and saves your eyes.
+
+🛠️ Under the Hood
+I went with the MERN stack for this one, adding a few modern tools to keep things fast and reliable:
+
+Frontend: React.js bootstrapped with Vite (because it's insanely fast), React Router, and the Context API to manage global states like user auth and themes.
+
+Backend: Node.js and Express.js keeping the API endpoints running smoothly.
+
+Database: MongoDB, modeled using Mongoose.
+
+Storage: Cloudinary handles all the heavy lifting for image hosting.
+
+Styling: 100% Vanilla CSS! I decided to skip the heavy frameworks this time and lean entirely into modern CSS variables, Flexbox, and Grid.
+
+💻 Running It Locally
+Want to pull down the code and run it on your own machine? Here is the step-by-step to get you rolling.
+
+Prerequisites
+Before you start, make sure you have Node.js installed, a MongoDB database ready to go (Atlas is perfect), a free Cloudinary account, and a Gmail account with an "App Password" generated for sending those OTP emails.
+
+Backend Setup
+Open your terminal and navigate into the backend directory: cd backend
+
+Install the necessary dependencies: npm install
+
+Create a .env file right inside the backend folder and paste in your secrets:
+
+Code snippet
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_secret_jwt_key
+SMTP_USER=your_gmail_address
+SMTP_PASS=your_gmail_app_password
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+Fire up the development server: npm run dev (It will boot up on port 5000).
+
+Frontend Setup
+Open a fresh terminal tab and navigate into the frontend directory: cd frontend
+
+Install the frontend dependencies: npm install
+
+Start the Vite server: npm run dev
+
+That is it! Just open http://localhost:5174 in your browser, and you should be looking at your very own local instance of Tech Connect. Have fun exploring the code!
