@@ -115,7 +115,7 @@ export default function PostCard({ post, onLike, onCommentAdded, initialFollowin
         {post.image && (
           <div className="post-image-wrap">
             <img
-              src={`${API_BASE}${post.image}`}
+              src={post.image.startsWith('http') ? post.image : `${API_BASE}${post.image}`}
               alt="Post"
               className="post-image"
               loading="lazy"
